@@ -1,0 +1,31 @@
+{% extends "abc.html" %}
+{% block content %}
+<div class="content">
+    <p class="title">У вас {{ point }} баллов</p>
+    <div>
+        <form class="login_form" method="post">
+            <!-- Поле ввода класса -->
+            {{ form.reward.label }}<br>
+            {{ form.reward(class="form-control", placeholder="Введите пароль") }}
+            {% for error in form.reward.errors %}
+                <p class="alert alert-danger" role="alert">
+                    {{ error }}
+                </p>
+            {% endfor %}
+
+
+            <!-- Поле ввода класса -->
+            {{ form.deg.label }}<br>
+            {{ form.deg(class="form-control", placeholder="Введите пароль") }}
+            {% for error in form.deg.errors %}
+                <p class="alert alert-danger" role="alert">
+                    {{ error }}
+                </p>
+            {% endfor %}
+            <br>
+            {{ form.submit(type="submit", class="btn btn-primary")}}
+        </form>
+        <br>
+    </div>
+</div>
+{% endblock %}

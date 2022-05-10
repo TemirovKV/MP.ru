@@ -1,0 +1,30 @@
+{% extends "abc.html" %}
+{% block content %}
+<div class="content">
+    <p class="title">Авторизация</p>
+    <div>
+        <form class="login_form" method="post">
+            <!-- Поле ввода e-mail -->
+            {{ form.email.label }}<br>
+            {{ form.email(class="form-control", placeholder="Введите адрес почты") }}
+            {% for error in form.email.errors %}
+                <p class="alert alert-danger" role="alert">
+                    {{ error }}
+                </p>
+            {% endfor %}
+
+            <!-- Поле ввода пароля -->
+            {{ form.password.label }}<br>
+            {{ form.password(class="form-control", placeholder="Введите пароль") }}
+            {% for error in form.password.errors %}
+                <p class="alert alert-danger" role="alert">
+                    {{ error }}
+                </p>
+            {% endfor %}
+            <br>
+            {{ form.submit(type="submit", class="btn btn-primary")}}
+        </form>
+        <br>
+    </div>
+</div>
+{% endblock %}
